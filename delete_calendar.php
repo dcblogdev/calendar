@@ -1,25 +1,12 @@
 <?php
-include("includes/config.php");
+include("config.php");
 $data = array();
 
-$query = "SELECT * FROM events ORDER BY id";
+$query = "DELETE FROM events WHERE id=:id";
 
 $statement = $connect->prepare($query);
-
-$statement->execute();
-
-$result = $statement->fetchAll();
-
-foreach($result as $row)
-{
- $data[] = array(
-  'id'   => $row["id"],
-  'title'   => $row["title"],
-  'start'   => $row["start_event"],
-  'end'   => $row["end_event"]
+ $statement->execute(
+  array(
+   ':id' => $_POST['id']
+  )
  );
-}
-
-echo json_encode($data);
-
-?>

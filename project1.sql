@@ -68,7 +68,7 @@ INSERT INTO `bookings` (`id`, `booking_date`) VALUES
 
 CREATE TABLE `events` (
   `id` int(11) NOT NULL,
-  `name` text DEFAULT NULL,
+  `title` text DEFAULT NULL,
   `start` datetime NOT NULL,
   `end` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

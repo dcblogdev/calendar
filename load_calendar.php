@@ -1,6 +1,6 @@
 <?php
-include("includes/config.php");
-$username=$_SESSION['name'];
+include("config.php");
+//$username=$_SESSION['name'];
 $data = array();
 
 $query = "SELECT * FROM events ORDER BY id";
@@ -22,4 +22,3 @@ foreach($result as $row)
  );
 }
 echo json_encode($data);
-?>

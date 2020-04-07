@@ -1,5 +1,5 @@
 <?php
-include("includes/config.php");
+include("config.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -30,11 +30,11 @@ include("includes/config.php");
      if(title)
      {
       var start = $.fullCalendar.formatDate(start, "Y-MM-DD HH:mm:ss");
-      var end = $.fullCalendar.formatDate(end, "Y-MM-DD HH:mm:ss");
+      var end = $.fullCalendar.formatDate(start, "Y-MM-DD HH:mm:ss");
       $.ajax({
        url:"insert_calendar.php",
        type:"POST",
-       data:{title:title, start:start_event, end:end_event},
+       data:{title:title, start:start, end:end},
        success:function()
        {
         calendar.fullCalendar('refetchEvents');
@@ -53,7 +53,7 @@ include("includes/config.php");
      $.ajax({
       url:"update_calendar.php",
       type:"POST",
-       data:{title:title, start:start_event, end:end_event},
+       data:{id:id, start:start, end:end},
       success:function(){
        calendar.fullCalendar('refetchEvents');
        alert('Event Update');
@@ -70,7 +70,7 @@ include("includes/config.php");
      $.ajax({
       url:"update_calendar.php",
       type:"POST",
-       data:{title:title, start:start_event, end:end_event},
+       data:{id:id, start:start, end:end},
       success:function()
       {
        calendar.fullCalendar('refetchEvents');
